@@ -37,21 +37,28 @@ ________________________________________
 •	Common Ground: All GND lines tied together
 ________________________________________
 5. Working Principle
-1.	Ultrasonic Measurement:
+   
+5.1.	Ultrasonic Measurement:
+   
 o	The HC-SR04 sensor emits an ultrasonic pulse when the trigger pin (P3.3) is activated.
 o	The pulse travels until it encounters an object and then reflects back to the sensor.
 o	The time interval between sending and receiving the pulse is measured using Timer0 in the 8051.
-2.	Distance Calculation:
+5.2.	Distance Calculation:
 o	The time measured is converted to distance (cm) using the formula:
-                                
+                                Distance(cm)= Time(μs)
+                                              ____
+                                               59
 o	This conversion factor (59) accounts for the round-trip travel time of the pulse in air.
-3.	I2C LCD Display:
+5.3.	I2C LCD Display:
+
 o	The measured distance is sent to an I2C 16×2 LCD using a bit-banged I2C protocol with SDA on P0.7 and SCL on P0.6.
 o	The LCD displays the text “DISTANCE” and updates the distance value continuously.
-4.	Programming via Arduino Uno:
+
+5.4.	Programming via Arduino Uno:
 o	The compiled code is uploaded to the 8051 using an Arduino Uno configured as an ISP with AVRDude.
 ________________________________________
 6. Embedded C Code(refer to distance_sensor.c file)
+   
 Code Explanation:
 
 •	I2C Routines: i2c_start(), i2c_stop(), and i2c_write() implement a simple bit-banging I2C master protocol to communicate with the LCD module.
