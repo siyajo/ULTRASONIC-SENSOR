@@ -70,7 +70,9 @@ ________________________________________
 o	The HC-SR04 sensor emits an ultrasonic pulse when the trigger pin (P3.3) is activated.
 o	The pulse travels until it encounters an object and then reflects back to the sensor.
 o	The time interval between sending and receiving the pulse is measured using Timer0 in the 8051.
+
 5.2.	Distance Calculation:
+
 o	The time measured is converted to distance (cm) using the formula:
 
                                 Distance(cm)= Time(μs)
